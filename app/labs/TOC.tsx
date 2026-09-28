@@ -2,7 +2,7 @@ import Link from "next/link";
 export default function TOC() {
   return (
     <div id="wd-labs-toc">
-      <p><strong>Sarthak</strong></p>
+      <p><strong>Sarthak Vikas Sonawane</strong></p>
       <p style={{ fontSize: "0.75rem" }}>Building one lab at a time.</p>
       <h5>Labs</h5>
       <ul>
