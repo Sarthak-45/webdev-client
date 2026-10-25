@@ -1,0 +1,79 @@
+[
+  {
+    "_id": "123",
+    "id": 123,
+    "firstName": "Alice",
+    "lastName": "Wonderland",
+    "loginId": "alice.wonder",
+    "section": "S101",
+    "role": "STUDENT",
+    "lastActivity": "2024-05-10",
+    "totalActivity": "02:00:00"
+  },
+  {
+    "_id": "234",
+    "id": 234,
+    "firstName": "Bob",
+    "lastName": "Builder",
+    "loginId": "bob.builder",
+    "section": "S101",
+    "role": "STUDENT",
+    "lastActivity": "2024-05-11",
+    "totalActivity": "01:30:00"
+  },
+  {
+    "_id": "345",
+    "id": 345,
+    "firstName": "Steve",
+    "lastName": "Rogers",
+    "loginId": "steve.rogers",
+    "section": "S101",
+    "role": "STUDENT",
+    "lastActivity": "2024-05-12",
+    "totalActivity": "03:00:00"
+  },
+  {
+    "_id": "456",
+    "id": 456,
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "loginId": "tony.stark",
+    "section": "S102",
+    "role": "STUDENT",
+    "lastActivity": "2024-05-09",
+    "totalActivity": "01:45:00"
+  },
+  {
+    "_id": "567",
+    "id": 567,
+    "firstName": "Thor",
+    "lastName": "Odinson",
+    "loginId": "thor.odinson",
+    "section": "S102",
+    "role": "STUDENT",
+    "lastActivity": "2024-05-13",
+    "totalActivity": "02:30:00"
+  },
+  {
+    "_id": "678",
+    "id": 678,
+    "firstName": "Bruce",
+    "lastName": "Wayne",
+    "loginId": "bruce.wayne",
+    "section": "S102",
+    "role": "STUDENT",
+    "lastActivity": "2024-05-08",
+    "totalActivity": "00:45:00"
+  },
+  {
+    "_id": "789",
+    "id": 789,
+    "firstName": "Diana",
+    "lastName": "Prince",
+    "loginId": "diana.prince",
+    "section": "S103",
+    "role": "STUDENT",
+    "lastActivity": "2024-05-14",
+    "totalActivity": "04:00:00"
+  }
+]

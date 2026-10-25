@@ -1,11 +1,25 @@
 import Link from "next/link";
-export default function AssignmentEditor() {
+import * as db from "../../../../database";
+export default async function AssignmentEditor({
+  params,
+}: {
+  params: Promise<{ cid: string; aid: string }>;
+}) {
+  const { cid, aid } = await params;
+  const assignment = db.assignments.find((a) => a._id === aid);
   return (
     <div id="wd-assignments-editor">
       <label htmlFor="wd-name">Assignment Name</label>
-      <input id="wd-name" defaultValue="A1 - ENV + HTML" />
-      <br /><br />
-      <textarea id="wd-description" defaultValue="The assignment is available online Submit a link to the landing page of your Web application running on Vercel." />
+      <input id="wd-name" defaultValue={assignment?.title ?? ""} />
+      <br />
+      <p>Assignment id: {aid}</p>
+      <br />
+      <textarea
+        id="wd-description"
+        defaultValue={assignment?.description ?? ""}
+        rows={8}
+        className="w-full"
+      />
       <br />
       <table>
         <tbody>
@@ -14,7 +28,7 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-points">Points</label>
             </td>
             <td>
-              <input id="wd-points" defaultValue={100} />
+              <input id="wd-points" defaultValue={assignment?.points ?? 100} />
             </td>
           </tr>
           <tr>
@@ -55,9 +69,7 @@ export default function AssignmentEditor() {
             </td>
           </tr>
           <tr>
-            <td align="right" valign="top">
-              Online Entry Options
-            </td>
+            <td align="right" valign="top">Online Entry Options</td>
             <td>
               <input type="checkbox" id="wd-text-entry" />
               <label htmlFor="wd-text-entry">Text Entry</label>
@@ -88,15 +100,23 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-due-date">Due</label>
             </td>
             <td>
-              <input type="date" id="wd-due-date" defaultValue="2024-05-13" />
+              <input
+                type="date"
+                id="wd-due-date"
+                defaultValue={assignment?.due}
+              />
             </td>
           </tr>
           <tr>
             <td align="right" valign="top">
-              <label htmlFor="wd-available-from">Available From</label>
+              <label htmlFor="wd-available-from">Available from</label>
             </td>
             <td>
-              <input type="date" id="wd-available-from" defaultValue="2024-05-06" />
+              <input
+                type="date"
+                id="wd-available-from"
+                defaultValue={assignment?.available}
+              />
             </td>
           </tr>
           <tr>
@@ -104,15 +124,18 @@ export default function AssignmentEditor() {
               <label htmlFor="wd-available-until">Until</label>
             </td>
             <td>
-              <input type="date" id="wd-available-until" defaultValue="2024-05-20" />
+              <input type="date" id="wd-available-until" />
             </td>
           </tr>
           <tr>
             <td></td>
             <td>
-              <Link href="../" id="wd-cancel">Cancel</Link>
-              {" "}
-              <Link href="../" id="wd-save">Save</Link>
+              <Link href={`/courses/${cid}/assignments`} id="wd-cancel">
+                Cancel
+              </Link>{" "}
+              <Link href={`/courses/${cid}/assignments`} id="wd-save">
+                Save
+              </Link>
             </td>
           </tr>
         </tbody>

@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "RS101",
+    "name": "Rocket Propulsion",
+    "number": "RS1234",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "department": "D123",
+    "credits": 4,
+    "description": "This course provides an in-depth study of the fundamentals of rocket propulsion, including thermodynamics of the combustion chamber and nozzle. Students analyze solid, liquid, and hybrid propellant systems.",
+    "image": "/images/reactjs.jpg",
+    "term": "Spring 2023"
+  },
+  {
+    "_id": "RS102",
+    "name": "Aerodynamics",
+    "number": "RS2345",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "department": "D123",
+    "credits": 4,
+    "description": "This course explores the principles of aerodynamics and how airflow interacts with wings, airfoils, and other flying bodies. Students study lift, drag, compressible flow, and the aerodynamic design of vehicles.",
+    "image": "/images/nodejs.jpg",
+    "term": "Spring 2023"
+  },
+  {
+    "_id": "RS103",
+    "name": "Spacecraft Design",
+    "number": "RS3456",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "department": "D123",
+    "credits": 4,
+    "description": "This course covers the principles of spacecraft design, including structures, propulsion, thermal control, and power systems. Students apply systems engineering methodologies to design missions.",
+    "image": "/images/mongodb.jpg",
+    "term": "Spring 2023"
+  },
+  {
+    "_id": "RS104",
+    "name": "Organic Chemistry",
+    "number": "RS4580",
+    "startDate": "2023-01-10",
+    "endDate": "2023-05-15",
+    "department": "D123",
+    "credits": 4,
+    "description": "An introduction to organic chemistry covering functional groups, reaction mechanisms, and synthesis strategies for carbon-based molecules.",
+    "image": "/images/reactjs.jpg",
+    "term": "Spring 2023"
+  }
+]

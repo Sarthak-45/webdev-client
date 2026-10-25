@@ -1,0 +1,93 @@
+[
+  {
+    "_id": "M101",
+    "name": "Introduction to Rocket Propulsion",
+    "course": "RS101",
+    "lessons": [
+      { "_id": "L101", "name": "History of Rocketry" },
+      { "_id": "L102", "name": "Rocket Propulsion Fundamentals" },
+      { "_id": "L103", "name": "Rocket Engine Types" }
+    ]
+  },
+  {
+    "_id": "M102",
+    "name": "Fuel and Combustion",
+    "course": "RS101",
+    "lessons": [
+      { "_id": "L201", "name": "Rocket Fuel" },
+      { "_id": "L202", "name": "Combustion Processes" },
+      { "_id": "L203", "name": "Combustion Instability" },
+      { "_id": "L204", "name": "Advanced Nozzle Design" }
+    ]
+  },
+  {
+    "_id": "M103",
+    "name": "Rocket Structures",
+    "course": "RS101",
+    "lessons": [
+      { "_id": "L301", "name": "Structural Materials" },
+      { "_id": "L302", "name": "Thermal Protection" },
+      { "_id": "L303", "name": "Launch Vehicle Staging" }
+    ]
+  },
+  {
+    "_id": "M201",
+    "name": "Fundamentals of Aerodynamics",
+    "course": "RS102",
+    "lessons": [
+      { "_id": "L401", "name": "Fluid Mechanics Basics" },
+      { "_id": "L402", "name": "Bernoulli's Equation" },
+      { "_id": "L403", "name": "Boundary Layer Theory" }
+    ]
+  },
+  {
+    "_id": "M202",
+    "name": "Lift and Drag",
+    "course": "RS102",
+    "lessons": [
+      { "_id": "L501", "name": "Airfoil Geometry" },
+      { "_id": "L502", "name": "Lift Generation" },
+      { "_id": "L503", "name": "Drag Reduction" }
+    ]
+  },
+  {
+    "_id": "M203",
+    "name": "Supersonic Flow",
+    "course": "RS102",
+    "lessons": [
+      { "_id": "L601", "name": "Shock Waves" },
+      { "_id": "L602", "name": "Expansion Fans" },
+      { "_id": "L603", "name": "Mach Number" }
+    ]
+  },
+  {
+    "_id": "M301",
+    "name": "Spacecraft Systems",
+    "course": "RS103",
+    "lessons": [
+      { "_id": "L701", "name": "Power Systems" },
+      { "_id": "L702", "name": "Thermal Control" },
+      { "_id": "L703", "name": "Attitude Control" }
+    ]
+  },
+  {
+    "_id": "M302",
+    "name": "Orbital Mechanics",
+    "course": "RS103",
+    "lessons": [
+      { "_id": "L801", "name": "Kepler's Laws" },
+      { "_id": "L802", "name": "Hohmann Transfers" },
+      { "_id": "L803", "name": "Orbital Rendezvous" }
+    ]
+  },
+  {
+    "_id": "M303",
+    "name": "Mission Design",
+    "course": "RS103",
+    "lessons": [
+      { "_id": "L901", "name": "Mission Objectives" },
+      { "_id": "L902", "name": "Launch Windows" },
+      { "_id": "L903", "name": "Payload Integration" }
+    ]
+  }
+]

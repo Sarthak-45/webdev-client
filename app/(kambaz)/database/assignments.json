@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "A101",
+    "title": "A1",
+    "course": "RS101",
+    "available": "2024-05-06",
+    "due": "2024-05-13",
+    "points": 100,
+    "description": "Introduction to rocket propulsion concepts and history."
+  },
+  {
+    "_id": "A102",
+    "title": "A2",
+    "course": "RS101",
+    "available": "2024-05-13",
+    "due": "2024-05-20",
+    "points": 100,
+    "description": "Analysis of combustion processes and fuel systems."
+  },
+  {
+    "_id": "A103",
+    "title": "A3",
+    "course": "RS101",
+    "available": "2024-05-20",
+    "due": "2024-05-27",
+    "points": 100,
+    "description": "Rocket structural design and thermal protection analysis."
+  },
+  {
+    "_id": "A201",
+    "title": "A1",
+    "course": "RS102",
+    "available": "2024-05-06",
+    "due": "2024-05-13",
+    "points": 100,
+    "description": "Fundamentals of fluid mechanics and aerodynamic forces."
+  },
+  {
+    "_id": "A202",
+    "title": "A2",
+    "course": "RS102",
+    "available": "2024-05-13",
+    "due": "2024-05-20",
+    "points": 100,
+    "description": "Lift and drag analysis for various airfoil geometries."
+  },
+  {
+    "_id": "A203",
+    "title": "A3",
+    "course": "RS102",
+    "available": "2024-05-20",
+    "due": "2024-05-27",
+    "points": 100,
+    "description": "Supersonic flow analysis and shock wave calculations."
+  },
+  {
+    "_id": "A204",
+    "title": "A4",
+    "course": "RS102",
+    "available": "2024-05-27",
+    "due": "2024-06-03",
+    "points": 100,
+    "description": "Wind tunnel testing and aerodynamic performance evaluation."
+  },
+  {
+    "_id": "A301",
+    "title": "A1",
+    "course": "RS103",
+    "available": "2024-05-06",
+    "due": "2024-05-13",
+    "points": 100,
+    "description": "Spacecraft systems overview and power budget analysis."
+  },
+  {
+    "_id": "A302",
+    "title": "A2",
+    "course": "RS103",
+    "available": "2024-05-13",
+    "due": "2024-05-20",
+    "points": 100,
+    "description": "Orbital mechanics and trajectory calculations."
+  },
+  {
+    "_id": "A303",
+    "title": "A3",
+    "course": "RS103",
+    "available": "2024-05-20",
+    "due": "2024-05-27",
+    "points": 100,
+    "description": "Mission design and systems integration report."
+  }
+]

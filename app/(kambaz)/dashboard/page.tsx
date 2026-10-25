@@ -1,28 +1,20 @@
 import CourseCard from "./CourseCard";
+import * as db from "../database";
 export default function Dashboard() {
+  const courses = db.courses;
   return (
     <div id="wd-dashboard">
-      <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
-      <h2 id="wd-dashboard-published">Published Courses (3)</h2> <hr />
-      <div id="wd-dashboard-courses">
-        <CourseCard
-          id="1234"
-          title="CS1234 React JS"
-          subtitle="Full Stack software developer"
-          color="skyblue"
-        />
-        <CourseCard
-          id="2345"
-          title="CS2345 Node JS"
-          subtitle="Server side JavaScript"
-          color="seagreen"
-        />
-        <CourseCard
-          id="3456"
-          title="CS3456 MongoDB"
-          subtitle="NoSQL Databases"
-          color="seagreen"
-        />
+      <h1 id="wd-dashboard-title">Dashboard</h1>
+      <hr />
+      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
+      <hr />
+      <div
+        id="wd-dashboard-courses"
+        className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
+      >
+        {courses.map((course) => (
+          <CourseCard key={course._id} {...course} />
+        ))}
       </div>
     </div>
   );
