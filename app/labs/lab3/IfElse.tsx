@@ -8,6 +8,7 @@ export default function IfElse() {
       {!false1 ? <p>!false1</p> : <p>false1</p>}
       {true1 && <p>Sarthak is logged in</p>}
       {false1 && <p>false1</p>}
+      {!false1 && <p>not false1</p>}
       <hr />
     </div>
   );
