@@ -1,4 +1,4 @@
-import { FaUserCircle } from "react-icons/fa";
+import { FaRegCircleUser } from "react-icons/fa6";
 import * as db from "../../../../database";
 export default async function PeopleTable({
   params,
@@ -29,7 +29,7 @@ export default async function PeopleTable({
           {enrolled.map((user) => (
             <tr key={user._id} className="odd:bg-neutral-50">
               <td className="wd-full-name p-2 text-nowrap">
-                <FaUserCircle className="me-2 inline align-middle text-3xl text-neutral-500" />
+                <FaRegCircleUser className="me-2 inline align-middle text-3xl text-neutral-500" />
                 <span className="wd-first-name">{user.firstName}</span>{" "}
                 <span className="wd-last-name">{user.lastName}</span>
               </td>

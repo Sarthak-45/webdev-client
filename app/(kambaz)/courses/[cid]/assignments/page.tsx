@@ -1,4 +1,4 @@
-import { FaPlus, FaSearch } from "react-icons/fa";
+import { FaPlus, FaMagnifyingGlass } from "react-icons/fa6";
 import AssignmentItem from "./AssignmentItem";
 import * as db from "../../../database";
 export default async function Assignments({
@@ -14,7 +14,7 @@ export default async function Assignments({
     <div id="wd-assignments">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <div className="relative">
-          <FaSearch className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-neutral-500" />
+          <FaMagnifyingGlass className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-neutral-500" />
           <input
             placeholder="Search for Assignments"
             id="wd-search-assignment"
