@@ -76,6 +76,13 @@ export default function Dashboard() {
         id="wd-course-number"
         placeholder="Course number"
       />
+      <input
+        type="date"
+        className="mb-3 block w-full max-w-xl rounded border border-neutral-300 px-3 py-1.5"
+        value={course.startDate}
+        onChange={(e) => setCourse({ ...course, startDate: e.target.value })}
+        id="wd-course-start-date"
+      />
       <hr />
       <h2 id="wd-dashboard-published">
         Published Courses ({visibleCourses.length})
