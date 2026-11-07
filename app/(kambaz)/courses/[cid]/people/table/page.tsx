@@ -1,15 +1,14 @@
+"use client";
 import { FaRegCircleUser } from "react-icons/fa6";
-import * as db from "../../../../database";
-export default async function PeopleTable({
-  params,
-}: {
-  params: Promise<{ cid: string }>;
-}) {
-  const { cid } = await params;
-  const { users, enrollments } = db;
-  const enrolled = users.filter((usr) =>
+import { useParams } from "next/navigation";
+import usersJson from "../../../../database/users.json";
+import { useEnrollmentsStore } from "../../../../store/enrollmentsStore";
+export default function PeopleTable() {
+  const { cid } = useParams();
+  const enrollments = useEnrollmentsStore((state) => state.enrollments);
+  const enrolled = usersJson.filter((usr) =>
     enrollments.some(
-      (enrollment) => enrollment.user === usr._id && enrollment.course === cid,
+      (e) => e.user === usr._id && e.course === cid,
     ),
   );
   return (

@@ -1,42 +1,67 @@
-import Link from "next/link";
-import * as db from "../../../../database";
-export default async function AssignmentEditor({
-  params,
-}: {
-  params: Promise<{ cid: string; aid: string }>;
-}) {
-  const { cid, aid } = await params;
-  const assignment = db.assignments.find((a) => a._id === aid);
+"use client";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
+import {
+  useAssignmentsStore,
+  emptyAssignment,
+  type Assignment,
+} from "../../../../store/assignmentsStore";
+export default function AssignmentEditor() {
+  const { cid, aid } = useParams();
+  const router = useRouter();
+  const assignments = useAssignmentsStore((state) => state.assignments);
+  const updateAssignment = useAssignmentsStore((state) => state.updateAssignment);
+  const existing = assignments.find((a) => a._id === aid);
+  const [assignment, setAssignment] = useState<Assignment>(
+    existing ?? { ...emptyAssignment, course: String(cid), _id: String(aid) },
+  );
+  const save = () => {
+    updateAssignment(assignment);
+    router.push(`/courses/${cid}/assignments`);
+  };
   return (
     <div id="wd-assignments-editor">
       <label htmlFor="wd-name">Assignment Name</label>
-      <input id="wd-name" defaultValue={assignment?.title ?? ""} />
-      <br />
+      <input
+        id="wd-name"
+        className="mb-2 block w-full rounded border border-neutral-300 px-3 py-1.5"
+        value={assignment.title}
+        onChange={(e) => setAssignment({ ...assignment, title: e.target.value })}
+      />
       <p>Assignment id: {aid}</p>
-      <br />
       <textarea
         id="wd-description"
-        defaultValue={assignment?.description ?? ""}
+        value={assignment.description}
+        onChange={(e) =>
+          setAssignment({ ...assignment, description: e.target.value })
+        }
         rows={8}
-        className="w-full"
+        className="mb-3 block w-full rounded border border-neutral-300 px-3 py-1.5"
       />
-      <br />
       <table>
         <tbody>
           <tr>
-            <td align="right" valign="top">
+            <td align="right" valign="top" className="pr-3 pt-2">
               <label htmlFor="wd-points">Points</label>
             </td>
             <td>
-              <input id="wd-points" defaultValue={assignment?.points ?? 100} />
+              <input
+                id="wd-points"
+                type="number"
+                className="rounded border border-neutral-300 px-3 py-1.5"
+                value={assignment.points}
+                onChange={(e) =>
+                  setAssignment({ ...assignment, points: Number(e.target.value) })
+                }
+              />
             </td>
           </tr>
           <tr>
-            <td align="right" valign="top">
+            <td align="right" valign="top" className="pr-3 pt-2">
               <label htmlFor="wd-group">Assignment Group</label>
             </td>
             <td>
-              <select id="wd-group" defaultValue="ASSIGNMENTS">
+              <select id="wd-group" defaultValue="ASSIGNMENTS" className="rounded border border-neutral-300 px-3 py-1.5">
                 <option value="ASSIGNMENTS">ASSIGNMENTS</option>
                 <option value="QUIZZES">QUIZZES</option>
                 <option value="EXAMS">EXAMS</option>
@@ -45,97 +70,63 @@ export default async function AssignmentEditor({
             </td>
           </tr>
           <tr>
-            <td align="right" valign="top">
-              <label htmlFor="wd-display-grade-as">Display Grade as</label>
+            <td align="right" valign="top" className="pr-3 pt-2">
+              <label>Assign</label>
             </td>
             <td>
-              <select id="wd-display-grade-as" defaultValue="Percentage">
-                <option value="Percentage">Percentage</option>
-                <option value="Points">Points</option>
-                <option value="Letter Grade">Letter Grade</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="top">
-              <label htmlFor="wd-submission-type">Submission Type</label>
-            </td>
-            <td>
-              <select id="wd-submission-type" defaultValue="Online">
-                <option value="Online">Online</option>
-                <option value="On Paper">On Paper</option>
-                <option value="No Submission">No Submission</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="top">Online Entry Options</td>
-            <td>
-              <input type="checkbox" id="wd-text-entry" />
-              <label htmlFor="wd-text-entry">Text Entry</label>
-              <br />
-              <input type="checkbox" id="wd-website-url" defaultChecked />
-              <label htmlFor="wd-website-url">Website URL</label>
-              <br />
-              <input type="checkbox" id="wd-media-recordings" />
-              <label htmlFor="wd-media-recordings">Media Recordings</label>
-              <br />
-              <input type="checkbox" id="wd-student-annotation" />
-              <label htmlFor="wd-student-annotation">Student Annotation</label>
-              <br />
-              <input type="checkbox" id="wd-file-upload" />
-              <label htmlFor="wd-file-upload">File Upload</label>
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="top">
-              <label htmlFor="wd-assign-to">Assign To</label>
-            </td>
-            <td>
-              <input id="wd-assign-to" defaultValue="Everyone" />
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="top">
-              <label htmlFor="wd-due-date">Due</label>
-            </td>
-            <td>
-              <input
-                type="date"
-                id="wd-due-date"
-                defaultValue={assignment?.due}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="top">
-              <label htmlFor="wd-available-from">Available from</label>
-            </td>
-            <td>
-              <input
-                type="date"
-                id="wd-available-from"
-                defaultValue={assignment?.available}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td align="right" valign="top">
-              <label htmlFor="wd-available-until">Until</label>
-            </td>
-            <td>
-              <input type="date" id="wd-available-until" />
+              <div className="rounded border border-neutral-300 p-3">
+                <label htmlFor="wd-due-date" className="block text-sm font-medium">Due</label>
+                <input
+                  type="date"
+                  id="wd-due-date"
+                  className="mb-2 block rounded border border-neutral-300 px-3 py-1.5"
+                  value={assignment.due}
+                  onChange={(e) => setAssignment({ ...assignment, due: e.target.value })}
+                />
+                <div className="flex gap-4">
+                  <div>
+                    <label htmlFor="wd-available-from" className="block text-sm font-medium">Available from</label>
+                    <input
+                      type="date"
+                      id="wd-available-from"
+                      className="rounded border border-neutral-300 px-3 py-1.5"
+                      value={assignment.available}
+                      onChange={(e) => setAssignment({ ...assignment, available: e.target.value })}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="wd-available-until" className="block text-sm font-medium">Until</label>
+                    <input
+                      type="date"
+                      id="wd-available-until"
+                      className="rounded border border-neutral-300 px-3 py-1.5"
+                      value={assignment.until ?? ""}
+                      onChange={(e) => setAssignment({ ...assignment, until: e.target.value })}
+                    />
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
           <tr>
             <td></td>
-            <td>
-              <Link href={`/courses/${cid}/assignments`} id="wd-cancel">
+            <td className="pt-4">
+              <button
+                type="button"
+                onClick={() => router.push(`/courses/${cid}/assignments`)}
+                id="wd-cancel"
+                className="me-2 rounded border border-neutral-300 px-4 py-1.5 text-sm"
+              >
                 Cancel
-              </Link>{" "}
-              <Link href={`/courses/${cid}/assignments`} id="wd-save">
+              </button>
+              <button
+                type="button"
+                onClick={save}
+                id="wd-save"
+                className="rounded bg-red-600 px-4 py-1.5 text-sm font-medium text-white"
+              >
                 Save
-              </Link>
+              </button>
             </td>
           </tr>
         </tbody>

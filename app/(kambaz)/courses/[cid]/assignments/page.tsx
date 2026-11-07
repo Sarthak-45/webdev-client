@@ -1,15 +1,13 @@
+"use client";
+import { useParams } from "next/navigation";
 import { FaPlus, FaMagnifyingGlass } from "react-icons/fa6";
 import AssignmentItem from "./AssignmentItem";
-import * as db from "../../../database";
-export default async function Assignments({
-  params,
-}: {
-  params: Promise<{ cid: string }>;
-}) {
-  const { cid } = await params;
-  const assignments = db.assignments.filter(
-    (assignment) => assignment.course === cid,
-  );
+import { useAssignmentsStore } from "../../../store/assignmentsStore";
+export default function Assignments() {
+  const { cid } = useParams();
+  const assignments = useAssignmentsStore((state) => state.assignments);
+  const addAssignment = useAssignmentsStore((state) => state.addAssignment);
+  const courseAssignments = assignments.filter((a) => a.course === cid);
   return (
     <div id="wd-assignments">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
@@ -33,6 +31,7 @@ export default async function Assignments({
             id="wd-add-assignment"
             type="button"
             className="inline-flex items-center gap-1 rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+            onClick={() => addAssignment(String(cid))}
           >
             <FaPlus /> Assignment
           </button>
@@ -51,10 +50,10 @@ export default async function Assignments({
         </button>
       </h3>
       <ul id="wd-assignment-list" className="m-0 list-none p-0">
-        {assignments.map((assignment) => (
+        {courseAssignments.map((assignment) => (
           <AssignmentItem
             key={assignment._id}
-            cid={cid}
+            cid={String(cid)}
             aid={assignment._id}
             title={assignment.title}
             details={`Multiple Modules | Not available until ${assignment.available} | Due ${assignment.due} | ${assignment.points} pts`}
